@@ -1,49 +1,27 @@
-
-/* Declare and implement your function here 
-eg: function example(parameter_name1,parameter_name2....){}
-Handle the input/output from main()
-*/
-
-
-
-
-process.stdin.resume();
-process.stdin.setEncoding('ascii');
-
-var input_stdin = "";
-var input_stdin_array = "";
-var input_currentline = 0;
-
-process.stdin.on('data', function (data) {
-input_stdin += data;
-});
-
-process.stdin.on('end', function () {
-input_stdin_array = input_stdin.split("\n");
-main();    
-});
-
-function readLine() {
-return input_stdin_array[input_currentline++];
-}
-
-
-function main() {
-
-    /* Read your input here 
-    eg: For string variables:   let str = String(readLine()); 
-        For int variables: let var_name = parseInt(readLine());
-        For arrays : const arr = readLine().replace(/\s+$/g, '').split(' ');
-    */
-
-    /*
-    Call your function with the input/parameters read above
-    eg: let x = example(var_name, arr);
-    */
-
-   /*
-   Log your output here 
-   eg: console.log(x);
-   */
-
-}
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* temp = head;
+        int count = 0;
+        while(temp!=NULL){
+            count++;
+            temp=temp->next;
+        }
+        temp=head;
+        int middle = count/2;
+        for(int i=0;i<middle;i++){
+            temp=temp->next;
+        }
+        return temp;
+    }
+};
